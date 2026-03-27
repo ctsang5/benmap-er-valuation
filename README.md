@@ -24,8 +24,8 @@ capstone/
 │   ├── Nguyen_AQAH_2024.pdf
 │   └── Ostro_ER_2024.pdf
 ├── notes/                 # Research summaries and outputs
-│   ├── BenMAP_ER_Visit_Valuation_Summary.md
-│   └── BenMAP_ER_Visit_Methodology_Deep_Dive.md
+│   ├── BenMAP_ER_Visit_Valuation.md
+│   └── WTP_ER_Visit_Literature.md
 └── articles/              # PDF processing working directory
 ```
 

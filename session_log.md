@@ -114,3 +114,26 @@ capstone/
 ### What's Next
 - Delete the old Summary and Deep Dive files (if confirmed).
 - Continue reviewing the rewritten document for clarity.
+
+---
+
+## Session 5 — 2026-03-27
+
+### Goals
+1. Research economics papers that use the WTP valuation approach for ER visits (to contrast with BenMAP's COI approach).
+2. Produce a new plain-language notes file summarizing the findings.
+
+### What We Did
+- Ran broad web research for WTP studies valuing ER visits and acute health events related to air pollution.
+- Identified key papers: Alberini & Krupnick (2000), Stieb et al. (2002), Johnson et al. (2000), Van Houtven et al. (2006).
+- Ran three parallel verification agents to confirm study details (exact citations, methodologies, dollar figures, authorship) before writing.
+- Key correction discovered: the $13/symptom-day and $5,200/cardiac-admission figures are from Stieb et al. (2002), not Johnson et al. (2000). Johnson et al. is the underlying methodology paper.
+- Wrote `WTP_ER_Visit_Literature.md` with in-text citations and a formal bibliography. All dollar figures include worked inflation arithmetic with noted approximations.
+
+### Artifacts Created
+| File | Description |
+|---|---|
+| `notes/WTP_ER_Visit_Literature.md` | WTP literature review — companion to the COI valuation document |
+
+### What's Next
+- TBD — awaiting direction on next capstone tasks.

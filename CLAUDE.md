@@ -26,3 +26,15 @@
 - **Problem:** Risk of confusion between the two.
 - **Solution:** Deleted `C:\Users\chris\capstone\` after confirming with user.
 - **Takeaway:** The active capstone directory is `C:\Users\chris\OneDrive\Desktop\capstone\`.
+
+### 2026-03-27: WTP dollar figures were misattributed to the wrong paper
+- **Context:** Initial web research for the WTP literature review attributed the $13/respiratory-symptom-day and $5,200/cardiac-admission figures to Johnson, Banzhaf & Desvousges (2000).
+- **Problem:** These figures actually come from Stieb et al. (2002) in *Environmental Health*. Johnson et al. (2000) is the underlying *methodology* paper that developed the stated-preference framework; Stieb et al. is the *applied policy* paper that produced the dollar estimates. F. Reed Johnson is a co-author on both, which likely caused the confusion in secondary sources.
+- **Solution:** Ran three parallel verification agents to confirm exact citations, authorship, journal, and dollar figures against primary sources before writing the document. Correctly attributed all figures in `WTP_ER_Visit_Literature.md`.
+- **Takeaway:** Always verify study details against primary sources (PubMed, journal websites) before citing. Secondary summaries and search results frequently misattribute findings, especially when the same authors appear on related papers.
+
+### 2026-03-27: WTP figures from Stieb et al. are in Canadian dollars, not U.S. dollars
+- **Context:** The Stieb et al. (2002) WTP estimates (CAN$13/symptom-day, CAN$5,200/cardiac admission) are in 1997 Canadian dollars.
+- **Problem:** Treating these as U.S. dollars would overstate the converted 2015 USD values by roughly 40% (since 1 CAD ≈ 0.72 USD in 1997).
+- **Solution:** Applied a two-step conversion in the document: (1) CAD → USD using the 1997 exchange rate (~0.72), then (2) 1997 USD → 2015 USD using the CPI-Medical inflation ratio (~1.90). Showed all arithmetic explicitly with a note that index values are approximate and should be verified against BLS Series CUUR0000SAM.
+- **Takeaway:** Always check the currency and dollar-year of cited figures. Canadian and U.S. health economics papers look similar but use different currencies, and the exchange rate matters.
