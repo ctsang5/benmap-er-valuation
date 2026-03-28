@@ -38,3 +38,13 @@
 - **Problem:** Treating these as U.S. dollars would overstate the converted 2015 USD values by roughly 40% (since 1 CAD ≈ 0.72 USD in 1997).
 - **Solution:** Applied a two-step conversion in the document: (1) CAD → USD using the 1997 exchange rate (~0.72), then (2) 1997 USD → 2015 USD using the CPI-Medical inflation ratio (~1.90). Showed all arithmetic explicitly with a note that index values are approximate and should be verified against BLS Series CUUR0000SAM.
 - **Takeaway:** Always check the currency and dollar-year of cited figures. Canadian and U.S. health economics papers look similar but use different currencies, and the exchange rate matters.
+
+### 2026-03-27: Citation errors found in `benmap_theory_comparison.pdf`
+- **Context:** Verified all 36 references in `C:\Users\chris\Downloads\benmap_theory_comparison.pdf` against primary sources. No fabricated citations, but five errors found.
+- **Errors:**
+  1. **Viscusi (2010) — wrong year.** The Handbook of the Economics of Risk and Uncertainty chapter was published in **2014**, not 2010. A related but different *Journal of Risk and Uncertainty* article exists from 2010.
+  2. **Fleurbaey & Abi-Rafeh (2016) — wrong journal and pages.** Actually published in *Review of Environmental Economics and Policy* 10(2), 286–307, **not** *Journal of Political Economy* 124(6), 1603–1650. Co-author name is correct.
+  3. **Harrington & Portney (1987) — missing from bibliography.** Cited in Section 3.2 text but absent from the references list. Full citation: *Journal of Urban Economics*, 22(1), 101–112.
+  4. **Dickie & Gerking (2002) — missing from bibliography.** Cited in Section 3.2 text but no reference entry. Appears to be an unpublished 2002 workshop presentation, not a peer-reviewed article.
+  5. **Dionisio, Chang & Baxter (2016) — possible author order error.** May be Dionisio, Baxter & Chang in the actual publication.
+- **Takeaway:** Always verify citation metadata (journal, year, pages) against the actual publication, not secondary sources or reference managers. Metadata swaps between entries are a common failure mode.

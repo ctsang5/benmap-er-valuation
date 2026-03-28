@@ -144,7 +144,7 @@ Several factors push the WTP/COI ratio up or down depending on the condition:
 
 ### Van Houtven et al. (2006) — A Meta-Regression Across Many Studies
 
-Rather than looking at one condition at a time, Van Houtven and colleagues analyzed approximately 210 WTP estimates drawn from roughly 40 published studies of acute health symptoms (Van Houtven, Powers, Jessup & Yang, 2006).
+Rather than looking at one condition at a time, Van Houtven and colleagues analyzed over 230 WTP estimates drawn from 17 published studies of acute health symptoms (Van Houtven, Powers, Jessup & Yang, 2006).
 
 **What they did:** They ran a **meta-regression** — a statistical analysis of results *across* many studies — to find out what predicts how much people are willing to pay to avoid a health event.
 
