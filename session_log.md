@@ -138,3 +138,71 @@ capstone/
 ### What's Next
 - TBD — awaiting direction on next capstone tasks.
 
+---
+
+## Session 6 — 2026-03-27
+
+### Goals
+1. Write a standalone review essay synthesizing the COI and WTP research.
+2. Assess relevance of `benmap_theory_comparison.pdf` to the essay.
+3. Verify all citations in `benmap_theory_comparison.pdf` (36 references).
+4. Verify all citations in the review essay (10 references).
+
+### What We Did
+- Planned and wrote a ~2,600-word (~4-page) standalone review essay tracing ER visit valuation methodology chronologically through three phases: COI foundation-laying (1990s), WTP challenge (2000–2006), and institutional settlement (2004–2025).
+- Read `C:\Users\chris\Downloads\benmap_theory_comparison.pdf` (12-page research notes comparing BenMAP-CE methodology against economic theory). Assessed it as partially relevant — Section 3.2 (COI as welfare measure) directly overlaps with the essay; most other sections are broader in scope. Saved for later use in the capstone.
+- Verified all 36 references in `benmap_theory_comparison.pdf` using three parallel agents. Found 5 errors: Viscusi wrong year (2010 → 2014), Fleurbaey wrong journal (JPE → REEP), Harrington & Portney missing from bibliography, Dickie & Gerking missing from bibliography, Dionisio possible author order error.
+- Verified all 10 references in the review essay using a parallel agent with web search. Found and fixed 2 errors:
+  - Van Houtven et al. (2006): "~210 estimates from ~40 studies" corrected to "over 230 estimates from 17 studies" (fixed in both `review_essay.md` and `WTP_ER_Visit_Literature.md`)
+  - Stanford et al. (1999): 160(3), 211–216 corrected to 160(1), 211–215
+- Flagged 2 items for future review: Smith et al. dollar figure ambiguity ($155 vs $290), EPA SAB document numbers unverifiable online.
+- Documented all errors and fixes in `CLAUDE.md` issues log.
+
+### Artifacts Created
+| File | Description |
+|---|---|
+| `notes/review_essay.md` | Standalone review essay (~4 pages) |
+
+### Files Modified
+| File | Change |
+|---|---|
+| `notes/WTP_ER_Visit_Literature.md` | Fixed Van Houtven study/estimate counts |
+| `CLAUDE.md` | Added two new issues log entries (PDF citation errors, essay citation errors) |
+
+### What's Next
+- TBD — awaiting direction on next capstone tasks.
+
+---
+
+## Session 7 — 2026-03-28
+
+### Goals
+1. Read Alberini & Krupnick (2000) from *Land Economics* using /read_pdf.
+2. Read Stieb et al. (2002) from *Environmental Health* using /read_pdf.
+3. Produce structured reading notes for both papers.
+
+### What We Did
+- **Alberini & Krupnick (2000) — three attempts to get the right PDF:**
+  - Attempt 1: Source PDF was actually Krupnick et al. (2002) on mortality risk — wrong paper entirely.
+  - Attempt 2: User updated the file; turned out to be Alberini et al. (1997) from *JEEM* (7-author precursor study, not the 2-author 2000 *Land Economics* paper). Caught after reading 3 splits.
+  - Searched for the correct paper online; it's behind JSTOR/UW Press paywalls.
+  - Attempt 3: User downloaded from JSTOR. Verified correct: 2 authors, *Land Economics* 76(1), pp. 37-53.
+  - Split into 5 chunks, read all batches, produced full structured extraction.
+  - Key findings: WTP/COI ratio of 1.48–2.26x for minor respiratory illness in Taiwan (602 adults, 3 cities, 92-day health diaries + CV survey on same people). Ratio increases with PM10 severity. Matches U.S. ratios despite half the per capita income.
+- **Stieb et al. (2002):**
+  - Split into 4 chunks (13 pages), read all batches.
+  - Key findings: V_T = V_AE + V_PS + V_COT + V_LP framework; CAN$5,200/cardiac hospital admission (95% CI $4,000–$6,400); CAN$13/acute respiratory symptom day (95% CI $0–$28). The "6x" comparison with BenMAP's $1,161 conflates severity differences (hospital admission vs. ER visit) with scope differences (comprehensive vs. COI-only).
+  - Identified the authorship network: F. Reed Johnson on both Johnson et al. (2000) and Stieb et al. (2002); Dave Stieb and Paul De Civita were Scientific Authorities on the Johnson et al. WTP survey contract.
+- Copied both notes files to `notes/` directory.
+- Documented problems (wrong PDFs, paywall) and solutions in `CLAUDE.md`.
+
+### Artifacts Created
+| File | Description |
+|---|---|
+| `articles/split_Alberini_Krupnick_2000/notes.md` | Structured extraction of Alberini & Krupnick (2000) |
+| `notes/Alberini_Krupnick_2000.md` | Copy in capstone notes directory |
+| `articles/split_Stieb_et_al_2002/notes.md` | Structured extraction of Stieb et al. (2002) |
+| `notes/Stieb_et_al_2002.md` | Copy in capstone notes directory |
+
+### What's Next
+- TBD — awaiting direction on next capstone tasks.

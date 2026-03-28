@@ -39,6 +39,16 @@
 - **Solution:** Applied a two-step conversion in the document: (1) CAD → USD using the 1997 exchange rate (~0.72), then (2) 1997 USD → 2015 USD using the CPI-Medical inflation ratio (~1.90). Showed all arithmetic explicitly with a note that index values are approximate and should be verified against BLS Series CUUR0000SAM.
 - **Takeaway:** Always check the currency and dollar-year of cited figures. Canadian and U.S. health economics papers look similar but use different currencies, and the exchange rate matters.
 
+### 2026-03-27: Citation errors found in review essay
+- **Context:** Verified all 10 references in `notes/review_essay.md` against primary sources (PubMed, journal websites).
+- **Errors found and fixed:**
+  1. **Van Houtven et al. (2006) — wrong study/estimate counts.** Essay said "~210 WTP estimates from ~40 studies." PubMed indicates **over 230 estimates from 17 studies**. The "~40" likely came from a Session 5 web search result that confused the number of estimates with the number of studies. Fixed in both `review_essay.md` and `WTP_ER_Visit_Literature.md`.
+  2. **Stanford et al. (1999) — wrong issue number and page range.** Essay cited 160(3), 211–216. PubMed lists **160(1), 211–215**. Fixed in the essay bibliography.
+- **Not fixed (flagged for review):**
+  3. **Smith et al. (1997) — dollar figure ambiguity.** Essay says "~$155 per visit in 1987 dollars." Secondary sources report $290 in 1994 dollars. Both may be correct: the $155 figure comes from BenMAP Appendix H (which we read directly) and likely represents the unadjusted 1987-dollar amount from the underlying NMES survey, while the $290 is the same figure inflated to 1994 dollars as reported in the Smith paper itself. Needs full-text verification to confirm.
+  4. **EPA SAB document numbers (2004, 2009).** EPA-SAB-COUNCIL-ADV-04-002 and EPA-SAB-09-012 could not be located via web search. These came from Appendix H which we read directly, so they are likely correct but unverifiable online.
+- **Takeaway:** Numbers from web research (especially counts like "40 studies") are prone to drift from secondary sources. Always cross-check against the paper's own abstract on PubMed when available.
+
 ### 2026-03-27: Citation errors found in `benmap_theory_comparison.pdf`
 - **Context:** Verified all 36 references in `C:\Users\chris\Downloads\benmap_theory_comparison.pdf` against primary sources. No fabricated citations, but five errors found.
 - **Errors:**
@@ -48,3 +58,22 @@
   4. **Dickie & Gerking (2002) — missing from bibliography.** Cited in Section 3.2 text but no reference entry. Appears to be an unpublished 2002 workshop presentation, not a peer-reviewed article.
   5. **Dionisio, Chang & Baxter (2016) — possible author order error.** May be Dionisio, Baxter & Chang in the actual publication.
 - **Takeaway:** Always verify citation metadata (journal, year, pages) against the actual publication, not secondary sources or reference managers. Metadata swaps between entries are a common failure mode.
+
+### 2026-03-28: Source PDF was the wrong paper — twice
+- **Context:** User provided `Alberini and Krupnick (2000).pdf` for reading with the /read_pdf skill.
+- **Problem (attempt 1):** The PDF actually contained Krupnick et al. (2002), a mortality-risk paper — completely different topic, different authors.
+- **Problem (attempt 2):** User replaced the file and re-invoked /read_pdf. After splitting and reading 3 batches, the paper turned out to be Alberini et al. (1997) from *JEEM* — a 7-author precursor study, not the 2-author 2000 *Land Economics* paper. Same research program but wrong paper.
+- **How it was caught:** Compared the PDF's title, author list, journal, and year against the expected citation. The 1997 paper has 7 authors (Alberini, Cropper, Fu, Krupnick, Liu, Shaw, Harrington) and was published in *JEEM*; the 2000 paper has 2 authors (Alberini & Krupnick) and was published in *Land Economics*.
+- **Resolution:** User downloaded the correct paper from JSTOR on the third attempt. Verified before proceeding: 2 authors, *Land Economics* 76(1), pp. 37-53.
+- **Takeaway:** When a source PDF has a filename like "Author (Year).pdf", never trust the filename — always verify the actual title, journal, author list, and year from the PDF content before investing time in a full structured extraction. A quick check of the first split (abstract + introduction) would have caught both mismatches immediately.
+
+### 2026-03-28: Alberini & Krupnick (2000) is behind a paywall
+- **Context:** After discovering the source PDF was wrong twice, attempted to find the correct paper online for download.
+- **Problem:** The paper is behind paywalls at JSTOR and University of Wisconsin Press. No free full-text PDF available through standard channels (Google Scholar, ResearchGate, author pages).
+- **Resolution:** User downloaded it themselves from JSTOR (likely via university library access) and re-invoked /read_pdf.
+- **Takeaway:** Many *Land Economics* papers are JSTOR-only. If a paper can't be found freely, provide the user with specific access options (JSTOR Register & Read for 3 free articles, university library proxy, interlibrary loan) rather than continuing to search.
+
+### 2026-03-28: This capstone is about emergency department (ER) visits, not hospital admissions
+- **Context:** The review essay compares Stieb et al.'s CAN$5,200 cardiac *hospital admission* figure with BenMAP's $1,161 cardiovascular *ER visit* figure to produce a "roughly six times" ratio.
+- **Problem:** Hospital admissions and ER visits are different clinical endpoints with very different severity levels. The 6x ratio conflates two issues: (1) the COI-vs-WTP methodological gap, and (2) a severity difference between admissions and ER visits. This is misleading in a capstone focused on ER visit valuation.
+- **Takeaway:** When citing WTP studies, always compare against the same clinical endpoint. Stieb et al. (2002) Table 5 reports ER-specific figures (cardiac ED visit: CAN$4,400; respiratory ED visit: CAN$2,000) that are the correct comparison points for this project. Hospital admission figures should only appear when explicitly discussing the severity gradient, clearly labeled as a different endpoint.
