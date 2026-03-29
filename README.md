@@ -1,14 +1,15 @@
-# Capstone: EPA BenMAP Emergency Room Visit Valuation Analysis
+# Capstone: The Economic Impact of Wildfire Smoke on Emergency Department Visits
 
-This project examines how the U.S. Environmental Protection Agency (EPA) uses the BenMAP-CE (Benefits Mapping and Analysis Program - Community Edition) tool to estimate the economic value of air-pollution-related emergency room visits. The focus is on three health endpoints:
+This project estimates the economic cost of wildfire smoke-attributable emergency department visits (EDVs) in California by applying two competing valuation frameworks — Cost-of-Illness (COI) and Willingness-to-Pay (WTP) — to the health burden estimates from Chen et al. (2023). The analysis centers on two endpoints:
 
-- **Cardiovascular disease** (All Cardiac Outcomes, ICD 390-459)
-- **Asthma** (ICD 493)
-- **Respiratory disease** (ICD 460-519)
+- **All respiratory diseases** — 4,597 attributable EDVs on smoke event days (2016-2019)
+- **All cardiovascular diseases** — 889 attributable EDVs on smoke event days (2016-2019)
 
 ## Background
 
-BenMAP-CE is EPA's primary tool for estimating the health benefits of changes in air quality. It links changes in pollutant concentrations to health outcomes using epidemiological concentration-response functions, then assigns dollar values to those outcomes using Cost-of-Illness (COI) and Willingness-to-Pay (WTP) approaches. This capstone focuses on the ER visit valuation side of that pipeline.
+The EPA's BenMAP-CE tool estimates the health benefits of air quality improvements through a three-step pipeline: (1) measure the air quality change, (2) estimate how many fewer people get sick, and (3) assign a dollar value to each avoided health event. This capstone connects Steps 2 and 3 by taking real-world health burden estimates from a California wildfire smoke study and applying the valuation methods used in EPA regulatory analysis.
+
+BenMAP values ER visits using **Cost-of-Illness** — essentially the medical bill. The economics literature shows that **Willingness-to-Pay** — what people would actually pay to avoid the full experience — is 2 to 6 times higher. By applying both approaches to the same set of attributable EDVs, this project demonstrates how the choice of valuation method changes the estimated economic impact of wildfire smoke on California emergency departments.
 
 ## Directory Structure
 
@@ -24,13 +25,12 @@ capstone/
 │   ├── Johnson, Banzhaf, Desrousges (2000).pdf
 │   ├── Stieb et al. (2002).pdf
 │   ├── Van Houtven, Powers, Jessup, and Yang (2006).pdf
-│   ├── Chen_ER_2023.pdf
-│   ├── Nguyen_AQAH_2024.pdf
-│   └── Ostro_ER_2024.pdf
+│   └── Chen_ER_2023.pdf
 ├── notes/                 # Research summaries and outputs
 │   ├── BenMAP_ER_Visit_Valuation.md
 │   ├── WTP_ER_Visit_Literature.md
 │   ├── review_essay.md
+│   ├── Chen_Ebisu_Benmarhnia_Basu_2023.md
 │   ├── Alberini_Krupnick_2000.md
 │   ├── Johnson_Banzhaf_Desvousges_2000.md
 │   └── Stieb_et_al_2002.md
@@ -42,14 +42,12 @@ capstone/
 
 ## Key Sources
 
-| Document | Description |
+| Document | Role in Project |
 |---|---|
-| BenMAP-CE User's Manual (Aug 2025) | Full guide to the BenMAP-CE tool |
-| Appendix H | Core health valuation functions used in the U.S. setup |
-| Alberini & Krupnick (2000) | WTP vs. COI comparison for respiratory illness in Taiwan |
-| Johnson, Banzhaf & Desvousges (2000) | Stated-preference WTP methodology for acute health events |
-| Stieb et al. (2002) | Comprehensive valuation of acute cardiorespiratory morbidity (Canada) |
-| Van Houtven et al. (2006) | Meta-regression of WTP estimates for acute health symptoms |
-| Chen et al. (2023) | Research on air pollution and ER visits |
-| Nguyen et al. (2024) | Air quality and health outcomes |
-| Ostro et al. (2024) | ER visit health impact analysis |
+| **Chen et al. (2023)** | **Core epidemiological study** — provides attributable EDV counts for respiratory (4,597) and cardiovascular (889) outcomes from wildfire smoke in California, 2016-2019 |
+| BenMAP-CE Appendix H (Aug 2025) | COI unit values: $1,161/cardiovascular EDV, $875/respiratory EDV, $534 or $447/asthma EDV |
+| Alberini & Krupnick (2000) | WTP/COI ratio of 1.48-2.26x for acute respiratory illness (Taiwan) |
+| Stieb et al. (2002) | Comprehensive WTP valuations: CAN$5,200/cardiac admission, CAN$2,000/respiratory ED visit |
+| Johnson, Banzhaf & Desvousges (2000) | Stated-preference WTP methodology underlying Stieb et al. |
+| Van Houtven et al. (2006) | Meta-regression of 230+ WTP estimates from 17 studies; benefit-transfer functions |
+| BenMAP-CE User's Manual (Aug 2025) | Full guide to the BenMAP-CE tool and methodology |

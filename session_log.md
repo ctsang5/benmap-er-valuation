@@ -206,3 +206,54 @@ capstone/
 
 ### What's Next
 - TBD — awaiting direction on next capstone tasks.
+
+---
+
+## Session 8 — 2026-03-28
+
+### Goals
+1. Fix the endpoint mismatch in the review essay (hospital admissions vs. ER visits).
+2. Read Van Houtven, Powers, Jessup, and Yang (2006) from *Health Economics* using /read_pdf.
+3. Produce structured reading notes.
+4. Clarify the role of Van Houtven et al. in the capstone (method paper vs. valuation paper).
+
+### What We Did
+- **Review essay fix (from context carried over):**
+  - The essay compared Stieb et al.'s CAN$5,200 cardiac *hospital admission* figure against BenMAP's $1,161 cardiovascular *ER visit* figure, producing a misleading "6x" ratio that conflated the COI-vs-WTP gap with a severity difference.
+  - Replaced with ED-specific figures from Stieb et al. Table 5: CAN$4,400 cardiac ED visit and CAN$2,000 respiratory ED visit.
+  - Fixed three locations in `review_essay.md`: the Stieb paragraph, the section summary, and the conclusion. Corrected ratios are now ~5x (cardiac) and ~3x (respiratory).
+  - Verified via Grep that no remaining "six times" / "6x" language persists.
+
+- **Van Houtven et al. (2006) — full structured extraction:**
+  - Copied source PDF to `articles/`, split into 6 chunks (21 pages).
+  - Read all 6 splits in two batches of 3.
+  - Paper is a **meta-regression analysis** of 236 WTP estimates from 17 stated-preference studies of acute morbidity. Uses the QWB Scale to characterize illness severity. Builds on Johnson et al. (1997) by quadrupling the sample.
+  - Key findings:
+    - WTP passes the scope test: increases with both duration and severity.
+    - **Duration elasticity = 0.50** (WTP increases less than proportionately with sick days).
+    - **Severity elasticity = 1.97** (WTP increases more than proportionately with illness severity).
+    - **Constant WTP/QALY assumption strongly rejected** (F-test, p < 0.001). The common ~$100,000/QALY valuation is not supported for acute morbidity.
+    - Four QWB dimensions contribute **unequally** to WTP: mobility and physical activity restrictions drive WTP far more than symptoms or social activity restrictions (F-test rejects equal weighting, p < 0.05).
+    - Income elasticity ~0.7 (health is a normal good); age elasticity ~2.6 (large positive effect).
+    - Two benefit transfer functions produced (Table 6) that can predict WTP for any acute condition given severity, duration, income, and age.
+    - Out-of-sample predictions range from $45 (1 day, mild symptoms) to $706 (10 days, vomiting with severe restrictions).
+  - Clarified the paper's role in the capstone: it's a **method paper** (produces benefit transfer functions), not a **valuation paper** (does not provide off-the-shelf dollar values for ER visits). In the review essay, it explains why EPA *could have* switched to WTP but didn't. For the valuation calculation, Stieb et al. and Alberini & Krupnick are more directly useful.
+  - The severity-vs-duration asymmetry (elasticity 2.0 vs. 0.5) provides theoretical support for why the WTP/COI gap is especially large for ER visits: they are short-duration, high-severity events where the severity elasticity dominates.
+
+- Copied finished notes to `notes/Van_Houtven_Powers_Jessup_Yang_2006.md`.
+- Documented two new entries in `CLAUDE.md`: (1) method vs. valuation paper distinction, (2) severity-duration asymmetry supporting the capstone argument.
+
+### Artifacts Created
+| File | Description |
+|---|---|
+| `articles/split_Van_Houtven_2006/notes.md` | Structured extraction of Van Houtven et al. (2006) |
+| `notes/Van_Houtven_Powers_Jessup_Yang_2006.md` | Copy in capstone notes directory |
+
+### Files Modified
+| File | Change |
+|---|---|
+| `notes/review_essay.md` | Fixed endpoint mismatch in 3 locations (hospital admission -> ED visit figures) |
+| `CLAUDE.md` | Added 2 new issues log entries (method vs. valuation paper; severity-duration asymmetry) |
+
+### What's Next
+- TBD — user mentioned heading in "a new direction" but has not yet specified.
