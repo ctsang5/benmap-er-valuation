@@ -257,3 +257,337 @@ capstone/
 
 ### What's Next
 - TBD — user mentioned heading in "a new direction" but has not yet specified.
+
+---
+
+## Session 9 — 2026-03-28
+
+### Goals
+1. Discuss how each source (besides Chen et al.) contributes to the capstone's goal.
+2. Settle on a conceptual grouping for the sources.
+3. Research additional WTP papers that quantify the COI-WTP gap.
+4. Read the most relevant new paper found (Richardson, Champ & Loomis 2013).
+
+### What We Did
+
+- **Source organization discussion:**
+  - Reviewed three possible groupings: by calculation role, by argument, and by intellectual lineage.
+  - Settled on **argument-based grouping** with three narrative acts plus a standalone calculation section:
+    - Act 1 ("Here's What EPA Does"): BenMAP Appendix H, BenMAP Manual
+    - Act 2 ("Here's What the Economics Shows"): Alberini & Krupnick, Johnson et al., Stieb et al.
+    - Act 3 ("Here's Why the Gap Persists"): Van Houtven et al., SAB advisories
+    - Calculation section (separate): Chen et al. EDV counts × COI and WTP values
+  - Identified Stieb et al. (2002) as the **keystone** WTP paper.
+  - Saved to `notes/source_organization.md`.
+
+- **WTP literature research:**
+  - Launched 3 parallel research agents covering: (1) WTP vs COI gap studies, (2) recent literature 2010-2026, (3) WTP/COI ratio foundations.
+  - **Key discovery:** Wildfire-specific WTP studies show the COI-WTP gap is 5-31x — much larger than the 2-4x from general morbidity literature.
+  - Found ~25 new papers. Most important:
+    - Richardson, Champ & Loomis (2013) — wildfire WTP $87-95/day vs COI $3-17/day, California
+    - Kochi et al. (2012) — wildfire WTP $84/day vs COI $9.50
+    - Scasny et al. (2024) — 7-country asthma WTP, 12,727 respondents
+    - Robinson, Eber & Hammitt (2022) — QALY-to-WTP framework
+    - Deschenes, Greenstone & Shapiro (2017) — revealed preference, defensive spending
+  - Also recovered details on foundational papers: Rowe & Chestnut (1985), Chestnut et al. (1988), Dickie & Gerking (1991), Harrington & Portney (1987).
+  - Meta-findings: no update to Van Houtven (2006) exists; no study directly estimates WTP/COI for ED visits; EPA announced Jan 2026 it will stop quantifying health benefits.
+
+- **Read Richardson, Champ & Loomis (2013) via /read_pdf:**
+  - Source PDF: `sources/Richardson, Champ & Loomis (2013).pdf` (25 pages)
+  - Split into 7 chunks, read in 2 batches (splits 1-3, then splits 4-6; split 7 is bibliography tail).
+  - Full structured extraction completed.
+  - Core results: WTP_DBM = $86.87/symptom-day, WTP_CVM = $95.03/symptom-day, COI_trad = $3.02, COI_comp = $16.87. DBM and CVM not statistically different (convergent validity, p = 0.62). Both WTP values statistically different from both COI values.
+  - The large ratio (5-31x) is driven by wildfire smoke causing widespread minor symptoms where few seek medical care (COI → ~$0) but 89% take costly defensive actions.
+  - Authors recommend a conservative calibration factor of 5x for wildfire smoke COI estimates.
+
+- Documented all decisions and findings in `CLAUDE.md` (4 new entries).
+
+### Artifacts Created
+| File | Description |
+|---|---|
+| `notes/source_organization.md` | Conceptual grouping of sources (three-act argument structure) |
+| `articles/Richardson_Champ_Loomis_2013.pdf` | Copy of source PDF in articles directory |
+| `articles/split_Richardson_Champ_Loomis_2013/` | 7 split PDFs (4 pages each) |
+| `articles/split_Richardson_Champ_Loomis_2013/notes.md` | Structured extraction of Richardson et al. (2013) |
+| `notes/Richardson_Champ_Loomis_2013.md` | Copy in capstone notes directory |
+
+### Files Modified
+| File | Change |
+|---|---|
+| `CLAUDE.md` | Added 4 new entries (source organization, WTP research findings, Richardson details) |
+
+### What's Next
+- Decide whether to read additional papers from the research findings (Scasny 2024, Robinson 2022, Kochi 2012).
+- Update `source_organization.md` to incorporate Richardson et al. into the three-act structure.
+- Begin the calculation section: apply COI and WTP values to Chen et al.'s attributable EDV counts.
+
+---
+
+## Session 10 — 2026-03-28
+
+### Goals
+1. Review all capstone markdown files for a full-project status check.
+2. Discuss Richardson et al. (2013) in depth — research question, methods, results, and capstone relevance.
+3. Rank Act 2 sources by significance and relevance to the capstone's goal.
+4. Reorganize the directory by moving less central sources to a `supplementary/` subdirectory.
+
+### What We Did
+
+- **Full project review:** Read all 19 markdown files across the capstone directory to rebuild context. Confirmed the three-act argument structure, source roles, and that the calculation section has not yet been written.
+
+- **Richardson et al. (2013) deep dive:** Discussed the paper's research question (first WTP estimates for wildfire smoke morbidity), its two independent WTP methods (DBM revealed preference at $86.87/symptom-day, CVM stated preference at $95.03/symptom-day), their convergent validity (p = 0.62), and the enormous WTP/COI gap (5-31x) driven by 89% of respondents taking defensive actions but only 5% seeking medical care. Discussed the independence of the two methods — different data sources, different statistical models, opposite failure modes — and why their convergence is compelling.
+
+- **Act 2 source ranking:**
+  1. **Stieb et al. (2002)** — most significant. Only Act 2 paper with ED-specific dollar values (CAN$4,400 cardiac ED, CAN$2,000 respiratory ED). Provides the component framework (V_T = V_AE + V_PS + V_COT + V_LP). Numbers go directly into the calculation section.
+  2. **Alberini & Krupnick (2000)** — second. Same-person WTP vs. COI comparison (ratio 1.48-2.26x). Strongest internal validity but wrong endpoint (minor respiratory illness, not ED visits) and wrong setting (Taiwan).
+  3. **Johnson, Banzhaf & Desvousges (2000)** — third. Methodology paper validating SP surveys for acute health events. No dollar values for the calculation. Supporting role only.
+
+- **Directory reorganization:**
+  - Created `supplementary/` subdirectory for sources deemed less central to the calculation.
+  - Moved all files for Alberini & Krupnick (2000) and Johnson et al. (2000): source PDFs from `sources/`, reading notes from `notes/`, working copies and split directories from `articles/` — 8 items total.
+  - Updated `README.md` directory structure to reflect the new layout, including adding Richardson et al. (2013) which was missing from the original listing.
+
+### Directory Changes
+
+**New directory:**
+| Directory | Description |
+|---|---|
+| `supplementary/` | Supporting sources not central to the calculation (Alberini & Krupnick 2000, Johnson et al. 2000 — PDFs, notes, and read_pdf splits) |
+
+### Files Modified
+| File | Change |
+|---|---|
+| `README.md` | Updated directory structure to reflect supplementary/ and add Richardson et al. |
+| `session_log.md` | This entry |
+
+### What's Next
+- Update `source_organization.md` to incorporate Richardson et al. into the three-act structure and reflect the Alberini/Johnson demotion.
+- Begin the calculation section: apply COI and WTP values to Chen et al.'s attributable EDV counts.
+- Decide whether to read additional papers (Scasny 2024, Robinson 2022, Kochi 2012).
+
+---
+
+## Session 11 — 2026-03-28
+
+### Goals
+1. Full-project status check: read all 19 markdown files to rebuild context.
+2. Discuss what remains to be done on the capstone.
+3. Decide on the role of the review essay going forward.
+4. Update source organization to remove supplementary sources from Act 2.
+
+### What We Did
+
+- **Full project review:** Read all 19 markdown files to rebuild context across sessions 1-10.
+
+- **Source organization update:**
+  - Removed Alberini & Krupnick (2000) and Johnson et al. (2000) from Act 2 in `source_organization.md`, since both were moved to `supplementary/` in Session 10.
+  - Added Richardson et al. (2013) to Act 2 and the Calculation section provisionally.
+  - Updated the Source Role Summary table and Key Relationships section accordingly.
+
+- **Review essay decision:**
+  - Discussed whether `notes/review_essay.md` still fits the project. The essay was built around a chronological narrative where Alberini & Krupnick and Johnson et al. played central roles. With those demoted to supplementary, the essay's scaffolding no longer matches the project structure.
+  - The essay answers "how did the field arrive at using COI?" — a literature history. The capstone asks "how much does the COI choice cost us for California wildfire smoke EDVs?" — an applied analysis. The mismatch is structural, not fixable by revision.
+  - **Deleted `notes/review_essay.md`.** Will start fresh when writing the capstone paper, using reading notes as raw material.
+
+- **Richardson et al. status clarified:** Still under evaluation. The source organization includes it provisionally, but its role in the capstone has not been decided. Chris is still working to understand the paper.
+
+- **Identified remaining work:**
+  1. Figure out what each Act actually argues (content, not just source mapping)
+  2. Write the calculation section
+  3. Write the capstone paper itself
+  4. Decide on Richardson et al.'s role
+
+### Files Modified
+| File | Change |
+|---|---|
+| `notes/source_organization.md` | Removed Alberini & Krupnick and Johnson et al. from Act 2; added Richardson et al. provisionally; updated table and relationships |
+
+### Files Deleted
+| File | Reason |
+|---|---|
+| `notes/review_essay.md` | No longer fits project structure after source reorganization; will start fresh |
+
+### What's Next
+- Figure out what each Act actually argues — the first priority for the next session.
+- Decide on Richardson et al.'s role in the capstone.
+- Write the calculation section.
+- Write the capstone paper.
+
+---
+
+## Session 12 — 2026-03-29
+
+### Goals
+1. Create the essay outline (`paper/essay_outline.md`).
+2. Review and revise the outline for structural issues.
+
+### What We Did
+
+- **Read source materials:** Re-read `notes/Stieb_et_al_2002.md`, `supplementary/Johnson_Banzhaf_Desvousges_2000.md`, and `paper/essay_outline.md` to rebuild context.
+
+- **Discussed Stieb et al.'s framework in depth:**
+  - Worked through a concrete example of the double-counting problem that Stieb's component framework (V_T = V_AE + V_PS + V_COT + V_LP) solves.
+  - Discovered that Stieb et al. don't actually discuss double-counting in the paper — the issue is handled implicitly through the survey design (Canadian universal health care + assumed paid sick leave ensures WTP captures only pain/suffering).
+
+- **Revised Section III.A — reframed around comprehensiveness:**
+  - Original title: "The innovation: adding components, not multiplying" (emphasized double-counting avoidance).
+  - Revised title: "What costs does COI leave out?" (emphasizes the paper's actual argument — comprehensiveness).
+  - The outline was attributing an argument to Stieb that the authors don't make.
+
+- **Moved hospital admission comparison from Section III to Section IV.C:**
+  - The comparison between ED ratios (1.9x) and hospital admission ratios (1.3x) was in Section III's "Argues" statement and subsection B.
+  - Since the capstone is about ED visits, this comparison only earns its place in Section IV where Van Houtven's elasticity asymmetry explains why the ratio differs by endpoint type.
+  - Section III now focuses purely on ED-specific results.
+  - Section III transition rewritten as a question ("is 1.3–1.9x a fixed ratio, or does it depend?") to set up Section IV.
+
+- **Rewrote all subsection titles as questions:**
+  - Labels like "ED-specific results" and "The endpoint-matching problem" didn't telegraph what the subsection would discuss.
+  - Replaced with questions: "How large is the gap for ED visits?", "Can we compare these values directly to BenMAP's?", etc.
+  - Reading just the question titles across Sections III–V now tells the argument story: What's missing? → How big is the gap? → Does it vary? → Why are ER visits worst? → Why is wildfire smoke even worse?
+
+- **Split Sections III, IV, and V into two groups each:**
+  - Diagnosed that each section mixed "what the paper found" with "the essay's commentary on the paper."
+  - Added **The findings** and **Implications for the capstone** group labels to make the two-part structure visible.
+
+- **Rewrote all bullet points as writing instructions (Sections II–VII):**
+  - Diagnosed the problem: bullets were reference notes (data points to look up), and the user couldn't picture the paragraph or see why each point mattered.
+  - Rewrote every bullet in claim → evidence → connection format: what to argue, what evidence to cite, and why it matters for the section's argument.
+
+- Updated `CLAUDE.md` with a single entry covering all five revisions.
+
+### Artifacts Created
+| File | Description |
+|---|---|
+| `paper/essay_outline.md` | Eight-section essay outline (created before this session, revised extensively during it) |
+
+### Files Modified
+| File | Change |
+|---|---|
+| `paper/essay_outline.md` | Five rounds of structural revision (III.A reframed, hospital admission comparison moved, question titles, group labels, bullet rewrite) |
+| `CLAUDE.md` | Added entry documenting all outline revisions |
+
+### What's Next
+- Decide on Richardson et al.'s role in the capstone.
+- Write the calculation section (Section VII of the outline).
+- Begin drafting the capstone paper from the outline.
+
+---
+
+## Session 13 — 2026-03-29
+
+### Goals
+1. Rebuild context by reading all non-supplementary markdown files.
+2. Discuss the connections between Van Houtven, Stieb, and Richardson chronologically.
+3. Create the essay outline (`paper/essay_outline.md`).
+4. Run parallel agent comparisons of Stieb and Chen.
+5. Score source relevance and build cross-source comparison reference material.
+
+### What We Did
+
+- **Full context rebuild:** Read all 14 markdown files outside `supplementary/` to rebuild context from Sessions 1-12.
+
+- **Moved `WTP_ER_Visit_Literature.md` to `supplementary/`:** This file was written during Session 5 around Alberini & Krupnick and Johnson et al., both already demoted. The WTP evidence for the main argument now lives in reading notes for Stieb and Richardson.
+
+- **Discussed source connections chronologically:**
+  - Traced the intellectual lineage: Johnson et al. (2000) built the survey tool → Stieb et al. (2002) applied it to produce ED-specific dollar values → Van Houtven et al. (2006) synthesized it with 16 other studies into a meta-regression → Richardson et al. (2013) independently measured the gap for wildfire smoke specifically.
+  - Key insight: Van Houtven operates *above* Stieb (general theory) rather than *after* it (chronologically later). Stieb produces a data point; Van Houtven explains why that data point is where it is; Richardson shows the mechanism is amplified for wildfire smoke.
+
+- **Created the essay outline (`paper/essay_outline.md`):**
+  - Eight sections organized chronologically: Introduction, COI Baseline (BenMAP), Stieb (2002), Van Houtven (2006), Richardson (2013) [provisional], Chen (2023), Calculation, Conclusion.
+  - Each section has an explicit "Argues" statement, subsections, and a transition to the next section.
+  - Chronological ordering places Van Houtven (Act 3) between Stieb and Richardson (both Act 2), which works narratively: Van Houtven explains why EPA's institutional settlement was rational in 2006, then Richardson arrives in 2013 to show wildfire smoke creates a wider gap.
+
+- **Discussed writing process:**
+  - Workflow for using the outline: start with Section II (not I), open one reading notes file per section, write the "Argues" statement as the opening paragraph, fill in subsections, write the transition, move on.
+  - Addressed the "can't write in my own words" problem: the fix is to read for understanding, close the source, explain it out loud, then write what you said. This reconstructs from understanding rather than translating from text.
+
+- **Three-agent comparison of Stieb and Chen:**
+  - Agent 1: Summarized Stieb's valuation framework and ED-specific values.
+  - Agent 2: Summarized Chen's attributable EDV counts and epidemiological findings.
+  - Agent 3: Identified agreements, divergences, and gaps across the two papers.
+  - Key results: COI total ~$5.05M vs. Stieb-based WTP total ~$17.93M (ratio ~3.6x). 8 of Chen's 19 endpoints have no Stieb valuation. Composition mismatch in respiratory categories (Chen ~26% asthma/COPD vs. Stieb's 44%). Lag mismatch is not a problem for valuation.
+
+- **Source relevance scoring and cross-source comparison:**
+  - Created `notes/auto-review/` directory with two reference files.
+  - `relevance_scores.md`: BenMAP and Chen scored 5 (essential), Stieb and Richardson scored 4 (important), Van Houtven scored 3 (supporting).
+  - `cross_source_comparison.md`: Comparison table, 4 agreements, 4 tensions, 6 gaps, full intellectual lineage. Most consequential gap: no source provides WTP for wildfire smoke ER visits specifically. Most consequential tension: WTP/COI multiplier ranges from 1.3x to 31x depending on endpoint and denominator.
+
+### Artifacts Created
+| File | Description |
+|---|---|
+| `paper/essay_outline.md` | Eight-section chronological literature review outline |
+| `notes/auto-review/relevance_scores.md` | 1-5 relevance scoring of all 5 primary sources |
+| `notes/auto-review/cross_source_comparison.md` | Full cross-source comparison (agreements, tensions, gaps, lineage) |
+
+### Files Modified
+| File | Change |
+|---|---|
+| `CLAUDE.md` | Added 3 new entries (WTP literature moved, Stieb-Chen comparison, relevance/comparison files) |
+
+### Files Moved
+| File | From | To |
+|---|---|---|
+| `WTP_ER_Visit_Literature.md` | `notes/` | `supplementary/` |
+
+### What's Next
+- Begin writing the capstone paper, starting with Section II (COI baseline).
+- Decide on Richardson et al.'s role as writing proceeds (Section V is provisional).
+- Run the calculation for Section VII once Sections II-VI are drafted.
+
+---
+
+## Session 14 — 2026-03-30
+
+### Goals
+1. Clean the capstone directory — remove all analytical outputs and start fresh.
+2. Re-read and understand the introduction of Chen et al. (2023).
+3. Understand the main model used in Chen et al. (2023).
+4. Understand the health impact function in Chen et al. (2023).
+
+### What We Did
+
+- **Directory cleanup:**
+  - Deleted `notes/` (6 reading notes + 2 auto-review files), `paper/` (essay outline), `supplementary/` (demoted sources, PDFs, splits), `articles/` (all working-copy PDFs, split directories, and notes), and `figures/` (margin of error figure and script).
+  - Reset `README.md` to a minimal placeholder.
+  - Kept `CLAUDE.md` (issues log), `session_log.md`, `sources/` (6 PDFs), `.gitignore`.
+  - Rationale: Sessions 1-13 produced extensive notes and an essay outline, but the project needs a fresh start on the writing. The issues log and session history are preserved for context; the source PDFs are untouched.
+
+- **Chen et al. (2023) introduction — paragraph-by-paragraph discussion:**
+  - Re-read pages 1-4 of the PDF (introduction + beginning of methods).
+  - Walked through the introduction's 5-paragraph funnel structure: (1) wildfires worsening in CA, (2) PM2.5 as key hazard with respiratory effects established but cardiovascular/mental health "mixed," (3) wildfire-specific PM2.5 may be more harmful than ambient PM2.5, (4) EJ — marginalized communities disproportionately exposed, (5) study purpose statement.
+  - **Key highlight for the literature review:** The passage about wildfire-specific PM2.5 increasing EDV risk for headache disorders compared to overall PM2.5 (Elser et al. 2023), supported by toxicological evidence of greater lung inflammation from wildfire smoke vs. ambient PM2.5 (Wegesser et al. 2009). Chosen over the Aguilera "10x" claim because Elser is about ED visits specifically — the exact endpoint the capstone values — while Aguilera is about hospital visits.
+  - **Important distinction:** The introduction does NOT treat respiratory and cardiovascular EDV associations as equally established. Respiratory is presented as confirmed ("has been associated with adverse respiratory outcomes"). Cardiovascular is presented as an open question ("associations... have been mixed"). The cardiovascular finding (+3.2% at lag 10) is one of the paper's novel contributions, not a replication of prior work. This matters because the capstone uses both EDV counts, and the cardiovascular number (889 EDVs) rests on a less established evidence base than the respiratory number (4,597 EDVs).
+  - **"Short-term" defined:** Same-day up to 14 days (from the lag structure in the methods). The attributable EDVs are the acute spike on/after smoke event days, not the total seasonal health burden.
+
+- **Understanding the main model (Section 2.4.1):**
+  - Two-stage design: Stage 1 runs quasi-Poisson regression separately for each of 11 air basins; Stage 2 combines the 11 basin-level estimates into one overall estimate via random effects meta-analysis (`mixmeta` in R).
+  - The key coefficient β1 is the log of the rate ratio — not a count, not a direct percentage. e^β1 = the relative risk. For all respiratory diseases, β1 ≈ 0.134 → RR = 1.143 → 14.3% increase.
+  - Confounders controlled: temperature (lag 0), day of week, holidays, seasonal/long-term trends (natural cubic spline). Population offset converts counts to rates.
+  - Quasi-Poisson (not standard Poisson) accounts for overdispersion — variance > mean in real ED visit counts.
+  - "At lag 1" means the ED visit spike appears the day *after* the smoke event, not the same day. Different outcomes peak at different lags: asthma at lag 0 (immediate), all respiratory at lag 1, cardiovascular at lag 10 (delayed systemic inflammation).
+
+- **Understanding the health impact function (Section 2.4.4):**
+  - Converts the percentage increase from the main model into a count of smoke-caused ED visits.
+  - Formula: Δy = Σᵢ [ y₀ᵢ × (e^β − 1) × Populationᵢ × SmokeEventDaysᵢ ]
+  - Chen et al. does not cite a source for the formula. Read the full 11-page paper to confirm — no citation given.
+  - **Connection to BenMAP found:** Read BenMAP Appendix C ("Deriving Health Impact Functions"). Section C.4 (Log-linear Model) derives the same formula from first principles: Δy = y₀ × (e^(β×ΔPM) − 1) × Population. Chen's version adapts this for a binary exposure (smoke event yes/no) instead of continuous ΔPM, adding SmokeEventDays as the multiplier. The mathematical structure is identical.
+  - This means Chen's epidemiological output is directly compatible with BenMAP's pipeline — the attributable EDV counts are produced using BenMAP's own formula, and the capstone's valuation step (multiplying counts × dollars) is BenMAP's Step 3.
+
+### Files Deleted
+| Directory | Contents Removed |
+|---|---|
+| `notes/` | BenMAP_ER_Visit_Valuation.md, Stieb_et_al_2002.md, Chen_Ebisu_Benmarhnia_Basu_2023.md, Van_Houtven_Powers_Jessup_Yang_2006.md, Richardson_Champ_Loomis_2013.md, source_organization.md, auto-review/cross_source_comparison.md, auto-review/relevance_scores.md |
+| `paper/` | essay_outline.md |
+| `supplementary/` | WTP_ER_Visit_Literature.md, Alberini_Krupnick_2000.md, Johnson_Banzhaf_Desvousges_2000.md, all PDFs and split directories |
+| `articles/` | All working-copy PDFs, 6 split directories with ~170 split PDFs, 6 notes.md files |
+| `figures/` | margin_of_error.py, margin_of_error.png |
+
+### Files Modified
+| File | Change |
+|---|---|
+| `README.md` | Reset to minimal placeholder |
+| `session_log.md` | This entry |
+
+### What's Next
+- Read H.2.2 Emergency Room Visits in BenMAP_guide_Appendix_H.pdf to learn how EPA values each ED visit for cardiovascular and respiratory diseases.
+- Determine which WTP values to apply to Chen's EDV counts and how to justify the choice.

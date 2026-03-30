@@ -1,5 +1,18 @@
 # CLAUDE.md - Capstone Project
 
+## Capstone Project Context
+This is a capstone project analyzing EPA BenMAP cost-of-illness methodology for ER visits, including WTP economics and environmental justice (CalEnviroScreen) data analysis. Key sources include Stieb et al., Chen (2023), Richardson et al. (2013). Always maintain session logs and update README when project structure changes.
+
+## Git Conventions
+- Never include Co-Authored-By lines in commit messages
+- Keep commit messages concise and factual — no editorializing
+- Always document issues/progress in CLAUDE.md before pushing to GitHub
+
+## Interaction Style
+- When I ask a question, answer it directly — don't ask clarifying follow-ups unless truly ambiguous
+- When I ask for feedback or review, add notes to CLAUDE.md unless I explicitly say to edit the document directly
+- Default to concrete examples over abstract/policy-level explanations
+
 ## Issues Log
 
 ### 2026-03-26: `python3` command fails on Windows, use `python`
@@ -88,3 +101,89 @@
 - **Context:** Van Houtven et al. find that WTP elasticity w.r.t. illness severity (~2.0) is roughly 4x larger than the elasticity w.r.t. duration (~0.5). The QALY approach assumes both are 1.
 - **Relevance:** ER visits are high-severity, short-duration events --- exactly the region where the severity elasticity dominates. This means the COI-vs-WTP gap should be *especially* large for ER visits, which is consistent with Stieb et al.'s 3-5x ratios for ED endpoints. This finding provides theoretical backing for the capstone's core argument that COI systematically undervalues ER visits.
 - **Takeaway:** When writing the analysis section, cite the asymmetric elasticities as theoretical support for why the WTP/COI gap is large for ER visits specifically, not just for morbidity in general.
+
+### 2026-03-28: Source organization settled — three-act argument structure
+- **Context:** Discussed how all non-Chen sources contribute to the capstone goal and how to organize them conceptually.
+- **Decision:** Argument-based grouping with three narrative acts plus a standalone calculation section:
+  - **Act 1** ("Here's What EPA Does"): BenMAP Appendix H, BenMAP Manual → establishes COI baseline
+  - **Act 2** ("Here's What the Economics Shows"): Alberini & Krupnick, Johnson et al., Stieb et al. → quantifies the WTP gap
+  - **Act 3** ("Here's Why the Gap Persists"): Van Houtven et al., SAB advisories → explains institutional lock-in
+  - **Calculation section** (separate, after Acts 1-3): applies both frameworks to Chen et al.'s EDV counts
+- **Key insight:** Stieb et al. (2002) is the **keystone** WTP paper — uses Johnson et al.'s methodology, produces values consistent with Alberini & Krupnick's ratios, backed by Van Houtven's meta-regression.
+- **Saved to:** `notes/source_organization.md`
+
+### 2026-03-28: WTP literature research uncovered wildfire-specific studies with much larger COI-WTP gaps
+- **Context:** Ran three parallel research agents to find additional WTP papers beyond the existing 2000-2006 sources.
+- **Key discovery:** Wildfire-specific WTP studies show the COI-WTP gap is **5-31x** for wildfire smoke symptom days — much larger than the 2-4x from the general morbidity literature. The mechanism: wildfire smoke causes widespread minor symptoms where few seek medical care (COI → ~$0), but nearly everyone takes costly defensive actions.
+- **Most important new papers found:**
+  1. **Richardson, Champ & Loomis (2013)** — *Land Economics*. WTP $87-95/symptom-day vs COI $3-17/day. California Station Fire 2009. Both revealed and stated preference converge. **Read in full with /read_pdf.**
+  2. **Kochi et al. (2012)** — *J Forest Economics*. WTP $84/day vs COI $9.50. 2003 SoCal wildfires.
+  3. **Scasny et al. (2024)** — *J Benefit-Cost Analysis*. 7-country asthma WTP, $529/yr adult, 12,727 respondents.
+  4. **Robinson, Eber & Hammitt (2022)** — *J Benefit-Cost Analysis*. QALY-to-WTP framework: mild case $5,300, hospitalized $11,000.
+  5. **Deschenes, Greenstone & Shapiro (2017)** — *AER*. Revealed preference: defensive pharmaceutical spending >1/3 of total WTP.
+- **Meta-findings:** No update to Van Houtven (2006) meta-regression exists. No study directly estimates WTP/COI for ED visits specifically. EPA announced Jan 2026 it will stop quantifying health benefits in air pollution rulemaking.
+- **Takeaway:** The general literature's 2-5x COI-WTP gap is a *conservative lower bound* for wildfire smoke specifically. Richardson et al. recommend using 5x as a conservative wildfire-specific calibration factor. This adds a powerful wildfire-specific layer to Act 2 of the capstone argument.
+
+### 2026-03-28: Richardson et al. (2013) — key details for the capstone
+- **Context:** Full structured extraction via /read_pdf (25 pages, 7 splits).
+- **Core finding:** WTP_DBM = $86.87, WTP_CVM = $95.03, COI_trad = $3.02, COI_comp = $16.87 (all per symptom day, 2009$).
+- **Statistical tests:** DBM and CVM are NOT statistically different (combinatorial p = 0.62 — convergent validity). Both WTP values ARE statistically different from both COI values (CIs don't overlap at 90%).
+- **Why the ratio is so large for wildfire smoke:** 89% of respondents took defensive actions but only 5% sought medical care. COI captures almost nothing; WTP captures the defensive spending, lost recreation, and disutility that dominate the welfare cost.
+- **Method note:** The DBM WTP is based on a single defensive action (home air cleaner, −0.31 marginal effect on symptom days, $26.93 average cost). The endogeneity of air cleaner use is addressed via maximum simulated likelihood (Deb & Trivedi 2006). The CVM uses a log-normal probit on 157 respondents with dichotomous choice bids ($10-$750).
+- **Limitation:** WTP values are per symptom day, not per ER visit. Connecting these to BenMAP's per-visit values ($875 respiratory, $1,161 cardiovascular) requires assumptions about symptom days per ER visit.
+- **Saved to:** `notes/Richardson_Champ_Loomis_2013.md`
+
+### 2026-03-28: Review essay removed — structural mismatch with project
+- **Context:** After removing Alberini & Krupnick (2000) and Johnson et al. (2000) from Act 2 (both moved to `supplementary/`), reassessed whether `notes/review_essay.md` still fit the project.
+- **Problem:** The essay was built around a chronological narrative where Alberini & Krupnick and Johnson et al. played central roles in the "WTP Challenge" section. With those sources demoted, the essay's scaffolding no longer matches the project structure. More fundamentally, the essay answers a different question ("how did the field arrive at using COI?") than the capstone ("how much does the COI choice cost us for California wildfire smoke EDVs?"). This is a structural mismatch, not something fixable by editing a few paragraphs.
+- **Resolution:** Deleted `notes/review_essay.md`. Will write the capstone paper from scratch using the reading notes as raw material.
+- **Takeaway:** When the source lineup changes significantly, check whether existing written products are still structurally sound. An essay organized around sources that are no longer in the main argument can't be patched — it needs to be rebuilt around the sources that remain.
+
+### 2026-03-28: Richardson et al. (2013) role is not yet decided
+- **Context:** Richardson et al. was added to `source_organization.md` as a provisional Act 2 source after the WTP literature research in Session 9.
+- **Problem:** The source organization treats Richardson et al. as a confirmed Tier 1 source, but the user is still working to understand the paper and hasn't decided whether it belongs in the main argument.
+- **Resolution:** Noted the provisional status. The source organization includes Richardson et al. but its role should not be assumed settled until explicitly confirmed.
+- **Takeaway:** Don't build argument structure around a source the user hasn't finished evaluating. Mark provisional sources clearly and wait for confirmation before treating them as load-bearing.
+
+### 2026-03-29: Essay outline created and revised (`paper/essay_outline.md`)
+- **Context:** Created an eight-section chronological literature review outline with a calculation section. Then revised it through several rounds of structural editing.
+- **Revisions made:**
+  1. **Section III.A reframed:** Title changed from "The innovation: adding components, not multiplying" to "What costs does COI leave out?" The original framing emphasized double-counting avoidance, but Stieb et al. don't discuss double-counting in the paper — their argument is about comprehensiveness (COI misses pain, suffering, and defensive costs). The outline was attributing an argument to the paper that the authors don't make.
+  2. **Hospital admission comparison moved from Section III to Section IV.C:** The comparison between ED visit ratios (1.9x) and hospital admission ratios (1.3x) was in Section III, but since the capstone is about ED visits specifically, the comparison only earns its place in Section IV where Van Houtven's elasticity asymmetry explains *why* the ratio differs. Section III now focuses purely on ED-specific findings.
+  3. **All subsection titles rewritten as questions:** Labels like "ED-specific results" and "The endpoint-matching problem" were unclear about what the subsection would discuss. Replaced with questions like "How large is the gap for ED visits?" and "Can we compare these values directly to BenMAP's?"
+  4. **Sections III, IV, and V split into two groups:** Each section mixes "what the paper found" with "what this means for the capstone." Added **The findings** and **Implications for the capstone** group labels to make the two-part structure visible.
+  5. **All bullet points rewritten as writing instructions:** Bullets were originally reference notes (data points to look up). Rewritten in claim → evidence → connection format so each bullet tells the writer what to argue, what evidence to cite, and why it matters for the section's argument.
+- **Takeaway:** Outline bullets should be writing instructions (what to argue), not reference notes (what data exists). The distinction matters because a data point doesn't tell the writer what claim to make or why it matters — it just sits there. A writing instruction tells the writer what to do with the data.
+
+### 2026-03-29: WTP_ER_Visit_Literature.md moved to supplementary
+- **Context:** `notes/WTP_ER_Visit_Literature.md` was written during Session 5 around Alberini & Krupnick and Johnson et al., both of which were demoted to supplementary in Session 10.
+- **Resolution:** Moved to `supplementary/WTP_ER_Visit_Literature.md`. The WTP evidence that matters for the main argument now lives in the individual reading notes for Stieb et al. and Richardson et al.
+
+### 2026-03-29: Three-agent comparison of Stieb et al. and Chen et al.
+- **Context:** Ran three parallel agents to compare Stieb (valuation) and Chen (health burden) — one summarizing each paper, one identifying agreements/divergences/gaps.
+- **Key findings:**
+  1. **Strongest connection:** Chen's "all respiratory" (4,597 EDVs) maps cleanly onto Stieb's REDV (CAN$2,000); Chen's "all cardiovascular" (889 EDVs) maps onto Stieb's CEDV (CAN$4,400). Subcategory mapping is weaker.
+  2. **Preliminary calculation:** COI total ~$5.05M vs. Stieb-based WTP total ~$17.93M (ratio ~3.6x).
+  3. **8 of Chen's 19 endpoints have no Stieb valuation:** cerebrovascular, PVD, TIA, diabetes, and all 5 mental health categories.
+  4. **Composition mismatch:** Chen's respiratory EDVs are ~26% asthma/COPD vs. Stieb's 44% assumption — slightly overvalues respiratory when applying Stieb's REDV.
+  5. **Lag mismatch is not a problem:** Stieb's framework is atemporal; the dollar value of a cardiac ED visit is the same whether it occurs at lag 0 or lag 10.
+- **Takeaway:** The capstone calculation should stay at the aggregate respiratory/cardiovascular level and flag the unvalued residual (mental health, metabolic endpoints) honestly.
+
+### 2026-03-29: Source relevance scoring and cross-source comparison
+- **Context:** Created `notes/auto-review/` directory with two reference files for writing.
+- **Files created:**
+  1. `relevance_scores.md` — 1-5 scoring of all 5 primary sources against the capstone question. BenMAP Appendix H and Chen et al. scored 5 (essential/irreplaceable). Stieb and Richardson scored 4 (important but substitutable). Van Houtven scored 3 (supporting — adds theoretical depth but changes no numbers).
+  2. `cross_source_comparison.md` — Comparison table, 4 agreements, 4 tensions, 6 gaps, and full intellectual lineage. Most consequential gap: no source provides WTP specifically for wildfire smoke ER visits (Stieb has ED visits but not wildfire-specific; Richardson has wildfire-specific but not ED visits). Most consequential tension: the WTP/COI multiplier ranges from 1.3x (Stieb) to 31x (Richardson) depending on endpoint and COI denominator.
+- **Takeaway:** The Johnson et al. (2000) survey is the connective tissue — it feeds directly into Stieb's applied valuations AND is the largest single source (67/236 estimates) in Van Houtven's meta-analysis. This makes the WTP evidence less independent than it first appears, worth acknowledging as a limitation.
+
+### 2026-03-30: Verify before answering — don't guess from memory
+- **Context:** Chris asked where Chen et al. got their health impact function. I answered from memory (saying it's a standard formula with no citation) before reading the paper to check.
+- **Problem:** Chris had to ask me to read the paper, which was the whole point of the question — to find out whether a citation exists by looking, not guessing.
+- **Resolution:** Read the full Chen paper, confirmed no citation. Then read BenMAP Appendix C and found the matching derivation.
+- **Takeaway:** When Chris asks a factual question about a source, read the source first, then answer. Don't answer from memory and then verify — verify first.
+
+### 2026-03-30: Full PDFs under ~15 pages can be read directly
+- **Context:** The `pdftoppm` PDF renderer fails on this Windows machine, so reading PDFs with the `pages` parameter doesn't work. The split PDFs from `/read_pdf` were deleted during the session cleanup.
+- **Problem:** Needed to read Chen et al. (11 pages) and BenMAP Appendix C (12 pages) without split files or the `pages` parameter.
+- **Resolution:** Reading the full PDF with the Read tool (no `pages` parameter) works fine for papers under ~15 pages. Both PDFs rendered successfully.
+- **Takeaway:** For short papers (under ~15 pages), read the full PDF directly. Only use `/read_pdf` splitting for longer papers where the full content would overwhelm context.
