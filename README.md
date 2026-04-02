@@ -1,6 +1,6 @@
 # Capstone: The Economic Impact of Wildfire Smoke on Emergency Department Visits
 
-This project estimates the economic cost of wildfire smoke-attributable emergency department visits in California by comparing Cost-of-Illness (COI) and Willingness-to-Pay (WTP) valuation frameworks.
+Capstone project requested by OEHHA researchers. Chen et al. (2023) estimated the number of wildfire smoke-attributable ED visits in California (2016-2019). This project estimates the economic impact of those ED visits using BenMAP's COI-based unit values as a baseline and WTP-based alternatives from the literature.
 
 ## Directory Structure
 

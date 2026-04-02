@@ -1,7 +1,7 @@
 # CLAUDE.md - Capstone Project
 
 ## Capstone Project Context
-This is a capstone project analyzing EPA BenMAP cost-of-illness methodology for ER visits, including WTP economics and environmental justice (CalEnviroScreen) data analysis. Key sources include Stieb et al., Chen (2023), Richardson et al. (2013). Always maintain session logs and update README when project structure changes.
+This capstone was requested by two researchers at OEHHA (Office of Environmental Health Hazard Assessment). They asked: given that Chen et al. (2023) estimated the number of wildfire smoke-attributable ED visits in California, what is the economic impact? The baseline valuation uses BenMAP's COI-only unit values. The researcher also asked whether BenMAP's numbers are "the reasonable and best fit," so the project explores WTP-based alternatives from the literature (Stieb et al., Richardson et al.) and compares the two approaches. Always maintain session logs and update README when project structure changes.
 
 ## Git Conventions
 - Never include Co-Authored-By lines in commit messages

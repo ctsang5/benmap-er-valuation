@@ -638,3 +638,4 @@ capstone/
 ### What's Next
 - Continue with essay writing using the outline and reading notes.
 - Thematic lit review draft due Thursday 2026-04-02.
+- Find a WTP paper with per-visit values (not per-symptom-day) that are directly comparable to Stieb et al.'s per-ED-visit values. Richardson et al.'s values are per symptom day, which can't be compared to Stieb or BenMAP without assumptions about symptom days per ED visit.
