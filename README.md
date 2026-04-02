@@ -8,7 +8,13 @@ This project estimates the economic cost of wildfire smoke-attributable emergenc
 capstone/
 ├── CLAUDE.md          # Issues log & project notes
 ├── session_log.md     # Running log of work sessions
-└── sources/           # Primary source PDFs (read-only)
+├── sources/           # Primary source PDFs (read-only)
+├── notes/             # Reading notes for each source
+│   ├── benMAP notes.md
+│   ├── chen et al. notes.md
+│   └── stieb et al notes.md
+└── paper/             # Essay drafts and outline
+    └── outline.md
 ```
 
 ## Key Sources

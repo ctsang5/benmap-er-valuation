@@ -591,3 +591,50 @@ capstone/
 ### What's Next
 - Read H.2.2 Emergency Room Visits in BenMAP_guide_Appendix_H.pdf to learn how EPA values each ED visit for cardiovascular and respiratory diseases.
 - Determine which WTP values to apply to Chen's EDV counts and how to justify the choice.
+
+---
+
+## Session 15 — 2026-04-01
+
+### Goals
+1. Deep-read Stieb et al. (2002) and take detailed notes on the valuation framework.
+
+### What We Did
+
+- **Read full Stieb et al. (2002) PDF** (13 pages) directly with the Read tool.
+
+- **Worked through the paper's methodology step by step:**
+  - The paper combines two pre-existing studies: (1) Johnson et al. (2000) stated-preference WTP survey (Toronto, n=399) which produced a WTP function, and (2) Saint John ED follow-up study (1992–96, n=1,772) which provided COI data, composition weights, and durations.
+  - V_T = V_COT + V_LP + V_SP, where V_SP = V_PS + V_AE (pain/suffering and averting expenditures could not be disentangled).
+  - The WTP survey asked about symptom × activity restriction × duration combinations, not about ED visits directly. Table 2 maps real ED patient profiles (from Saint John data) onto those combinations as weights to produce endpoint-level WTP values.
+  - V_COT was estimated via a regression model (Table 4) using Saint John chart review data (n=393), with diagnosis, duration, and admission type as predictors.
+  - V_LP = lost work days × CAN$119.60/day, weighted across diagnoses.
+  - All three components use the same Table 2 composition weights and Table 3 durations.
+
+- **Verified currency conversion factors:**
+  - 1997 CAD → USD exchange rate: 0.7226 (confirmed via Canada.ca archived rates)
+  - CPI Medical Care inflation 1997 → 2015: 446.752 / 234.583 = 1.904 (confirmed via AHRQ MEPS price index table, series CUUR0000SAM)
+  - Stieb's respiratory EDV (CAN$2,000) → $2,752 in 2015 USD; cardiac EDV (CAN$4,400) → $6,054 in 2015 USD.
+
+- **Key results for capstone:**
+  - Respiratory EDV: $2,752 vs. BenMAP's $875 → 3.1x ratio
+  - Cardiac EDV: $6,054 vs. BenMAP's $1,161 → 5.2x ratio
+  - BenMAP's values are medical costs only (no lost productivity, no pain/suffering, no averting expenditures).
+  - For respiratory EDVs, pain/suffering ($950) exceeds cost of treatment ($930) — COI is least adequate for the endpoint most affected by wildfire smoke.
+
+- **Created `notes/stieb et al notes.md`** with detailed walkthrough of the valuation framework, Table 2 weighting process, V_LP calculation, V_COT regression, and currency conversion.
+
+### Artifacts Created
+| File | Description |
+|---|---|
+| `notes/stieb et al notes.md` | Detailed reading notes on Stieb et al. (2002) valuation framework |
+
+### Files Modified
+| File | Change |
+|---|---|
+| `README.md` | Updated directory structure to include `notes/` and `paper/` |
+| `session_log.md` | This entry |
+
+### What's Next
+- Continue with essay writing using the outline and reading notes.
+- Thematic lit review draft due Thursday 2026-04-02.
